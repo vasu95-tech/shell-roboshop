@@ -6,8 +6,7 @@ Security_group_id=sg-0ec1754eb45347fa5
 for instance in $@
 do
 
-  Instance_id=$(aws ec2 run-instances --image-id $Ami_id --instance-type 
-  t3.micro --security-group-ids $Security_group_id 
+  Instance_id=$(aws ec2 run-instances --image-id $Ami_id --instance-type t3.micro --security-group-ids $Security_group_id 
   --tag-specifications"ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" --query 'Instances[0].InstanceId' --output)
 
  if [ $instance != "frontend" ]; then
