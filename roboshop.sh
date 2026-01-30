@@ -1,7 +1,7 @@
 #!/bin/bash
 
 Ami_id=ami-0220d79f3f480ecf5
-Security_group_id=sg-0b982697083aeaf23
+Security_group_id=sg-0ec1754eb45347fa5
 
 for instance in $@
 do
