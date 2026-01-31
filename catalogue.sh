@@ -48,8 +48,6 @@ rm -rf /app/*
 validate $? "removing existing code"
 unzip /tmp/catalogue.zip &>>$log_file
 validate $? "unzipping catalogue code"
-cd /app 
-validate $? "changing directory to app"
 npm install &>>$log_file
 validate $? "installing dependencies"
 cp $script_dir/catalogue.service /etc/systemd/system/catalogue.service
