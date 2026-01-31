@@ -10,6 +10,7 @@ log_folder="/var/log/shell-roboshop"
 mkdir -p $log_folder
 script_name=$( echo $0 | cut -d "." -f1 )
 log_file="$log_folder/$script_name.log"
+script_dir=$pwd
 
 
 if [ $userid -ne 0 ]; then
@@ -53,8 +54,8 @@ cd /app
 validate $? "changing directory to app"
 npm install &>>$log_file
 validate $? "installing dependencies"
-cp catalogue.service /etc/systemd/system/catalogue.service
-validate $? "created .service file and updated mongodb ip "
+cp $script_dir/catalogue.service  /etc/systemd/system/catalogue.service
+validate $? "copy catalogue service"
 systemctl daemon-reload
 validate $? "daemon-reload"
 systemctl enable catalogue &>>$log_file
@@ -62,7 +63,7 @@ validate $? "enabling catalogue"
 systemctl start catalogue
 validate $? "starting catalogue"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp $script_dir/mongo.repo /etc/yum.repos.d/mongo.repo
 validate $? "copy mongo repo"
 dnf install mongodb-mongosh -y &>>$log_file
 validate $? "installing mongodb client"
