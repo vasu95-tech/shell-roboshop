@@ -26,17 +26,17 @@ validate(){
 
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo
-validate $? adding mongo repo
+validate $? "adding mongo repo"
 
 dnf list installed mongodb-org &>>$log_file
 if [ $? -ne 0 ]; then
 echo -e "mongodb already installed $Y SKIPPING $N" |  tee -a $log_file
 else 
 dnf install mongodb-org -y &>>$log_file
-validate $? mongodb installation 
+validate $? "mongodb installation" 
 fi
 
 systemctl enable mongod &>>$log_file
-validate $? enabling mongodb
+validate $? "enabling mongodb"
 systemctl start mongod 
-validate $? starting mongodb
+validate $? "starting mongodb"
