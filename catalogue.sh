@@ -50,7 +50,7 @@ unzip /tmp/catalogue.zip &>>$log_file
 validate $? "unzipping catalogue code"
 npm install &>>$log_file
 validate $? "installing dependencies"
-cp $script_dir/catalogue.service /etc/systemd/system/catalogue.service
+cp /home/ec2-user/shell-roboshop/catalogue.service /etc/systemd/system/catalogue.service
 validate $? "copy catalogue service"
 systemctl daemon-reload
 validate $? "daemon-reload"
