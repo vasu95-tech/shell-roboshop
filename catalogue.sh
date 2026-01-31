@@ -38,6 +38,7 @@ useradd --system --home /app --shell /sbin/nologin --comment "roboshop system us
 validate $? "creating user"
 else
 echo -e " user already exist $Y Skipping $N"
+fi
 mkdir -p /app 
 validate $? "creating app directory"
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$log_file
