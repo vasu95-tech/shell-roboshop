@@ -5,7 +5,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-
+script_dir=$pwd
 log_folder="/var/log/shell-roboshop"
 mkdir -p $log_folder
 script_name=$( echo $0 | cut -d "." -f1 )
