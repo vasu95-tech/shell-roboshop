@@ -31,10 +31,10 @@ validate $? "adding mongo repo"
 
 dnf list installed mongodb-org &>>$log_file
 if [ $? -ne 0 ]; then
-echo -e "mongodb already installed $Y SKIPPING $N" |  tee -a $log_file
-else 
 dnf install mongodb-org -y &>>$log_file
 validate $? "mongodb installation" 
+else 
+echo -e "mongodb already installed $Y SKIPPING $N" |  tee -a $log_file
 fi
 
 systemctl enable mongod &>>$log_file
