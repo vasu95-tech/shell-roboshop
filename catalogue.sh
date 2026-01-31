@@ -52,7 +52,7 @@ cd /app
 validate $? "changing directory to app"
 npm install &>>$log_file
 validate $? "installing dependencies"
-cp $script_dir/catalogue.service  /etc/systemd/system/catalogue.service
+cp $script_dir/catalogue.service /etc/systemd/system/catalogue.service
 validate $? "copy catalogue service"
 systemctl daemon-reload
 validate $? "daemon-reload"
@@ -69,3 +69,4 @@ mongosh --host mongodb.daws-86vasu.fun </app/db/master-data.js &>>$log_file
 validate $? "load catalogue products"
 systemctl restart catalogue
 validate $? "catalogue restarted"
+
