@@ -5,10 +5,10 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-log_folder=/var/log/shell-roboshop
+log_folder="/var/log/shell-roboshop"
 mkdir -p $log_folder
 script_name=$( echo $0 | cut -d "." f1 )
-log_file=$log_folder/$script_name.log
+log_file="$log_folder/$script_name.log"
 
 if [ $userid -ne 0 ]; then
   echo "Run the script with root privelege"
