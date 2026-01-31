@@ -7,7 +7,7 @@ N="\e[0m"
 
 log_folder=/var/log/shell-roboshop
 mkdir -p $log_folder
-script_name=$(echo $0 | cut -d "." f1)
+script_name=$( echo $0 | cut -d "." f1 )
 log_file=$log_folder/$script_name.log
 
 if [ $userid -ne 0 ]; then
@@ -29,7 +29,7 @@ cp mongo.repo /etc/yum.repos.d/mongo.repo
 validate $? adding mongo repo
 
 dnf list installed mongodb-org &>>$log_file
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
 echo -e "mongodb already installed $Y SKIPPING $N" |  tee -a $log_file
 else 
 dnf install mongodb-org -y &>>$log_file
