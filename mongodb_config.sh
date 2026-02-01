@@ -30,6 +30,7 @@ cp mongo.repo /etc/yum.repos.d/mongo.repo
 validate $? "adding mongo repo"
 
 dnf list installed mongodb-org &>>$log_file
+echo $?
 if [ $? -ne 0 ]; then
 dnf install mongodb-org -y &>>$log_file
 validate $? "mongodb installation" 
