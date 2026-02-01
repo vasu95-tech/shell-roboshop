@@ -59,7 +59,7 @@ validate $? "enabling catalogue"
 systemctl start catalogue
 validate $? "starting catalogue"
 
-cp $script_dir/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /home/ec2-user/shell-roboshop/mongo.repo /etc/yum.repos.d/mongo.repo
 validate $? "copy mongo repo"
 dnf install mongodb-mongosh -y &>>$log_file
 validate $? "installing mongodb client"
